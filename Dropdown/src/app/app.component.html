@@ -1,0 +1,44 @@
+<html>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+  <div
+    class="dropdown"
+    (click)="toggleDropdown()"
+    tabindex="0"
+    (keydown.enter)="toggleDropdown()"
+  >
+    <div class="dropdown__content">
+      <input
+        placeholder="Select Item"
+        class="dropdown__input"
+        [(value)]="value"
+        autocomplete="off"
+      />
+      <i class="fa fa-sort-desc fa-2x"> </i>
+    </div>
+    <ul
+      class="dropdown__option"
+      [class.dropdown__option--active]="toggle"
+      role="listbox"
+      attr.aria-labelledby="listbox"
+      tabindex="0"
+      [attr.aria-activedescendant]="activedescendentItem"
+      (keydown)="onKeydown($event)"
+    >
+      <li
+        #option
+        role="option"
+        id="option-{{ val.id }}"
+        [attr.data-item-id]="val.id"
+        *ngFor="let val of items"
+        [id]="val.id"
+        (click)="setOption(val)"
+        class="dropdown__option-list"
+      >
+        {{ val.value }}
+      </li>
+    </ul>
+  </div>
+</html>
