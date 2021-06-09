@@ -1,4 +1,4 @@
-# Dropdown
+# Dropdown with Angular | Solution for Accessibility
 
 This project is created using Angular CLI.
 
